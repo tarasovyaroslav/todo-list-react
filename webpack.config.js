@@ -46,34 +46,33 @@ module.exports = {
                     },
                 },
             },
-            {
-                test: /\.s(a|c)ss$/,
-                exclude: /node_modules/,
-                use: [
-                    production
-                        ? MiniCssExtractPlugin.loader
-                        : 'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true,
-                            sourceMap: !production,
-                        },
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            sourceMap: !production,
-                        },
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: !production,
-                        },
-                    },
-                ],
-            },
+            // {
+            //     test: /\.s[ac]ss$/i,
+            //     exclude: /node_modules/,
+            //     use: [
+            //         production
+            //             ? MiniCssExtractPlugin.loader
+            //             : 'style-loader',
+            //         {
+            //             loader: 'css-loader',
+            //             options: {
+            //                 sourceMap: !production,
+            //             },
+            //         },
+            //         {
+            //             loader: 'postcss-loader',
+            //             options: {
+            //                 sourceMap: !production,
+            //             },
+            //         },
+            //         {
+            //             loader: 'sass-loader',
+            //             options: {
+            //                 sourceMap: !production,
+            //             },
+            //         },
+            //     ],
+            // },
         ],
     },
 
