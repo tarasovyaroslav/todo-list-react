@@ -26,6 +26,12 @@ const AddForm = ({ todos, addTodo }) => {
     <AddFormStyled
       onSubmit={(e) => {
         e.preventDefault();
+
+        if (todoText.trim() === '') {
+          alert('Write some text in todo.');
+          return;
+        }
+
         const id = Date.now();
         const todo = {
           id: id,

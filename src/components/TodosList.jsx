@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import InfoMessage from './InfoMessage';
 
 import TodoItem from './TodoItem';
 
@@ -8,7 +9,7 @@ const TodosListStyled = styled.ul`
   border-radius: 5px;
   box-shadow: 1px 1px 15px lightgray;
   overflow-y: scroll;
-  height: 600px;
+  height: 350px;
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -24,21 +25,33 @@ const TodosListStyled = styled.ul`
   }
 `;
 
+const messages = {
+  all: 'Create some todos!',
+  completed: 'No completed todos.',
+  uncompleted: 'Well done! All completed.',
+};
+
+function filterTodos(todosArray, filter) {
+  return todosArray.filter((todo) => {
+    switch (filter) {
+      case 'completed':
+        return todo.checked;
+      case 'uncompleted':
+        return !todo.checked;
+      default:
+        return true;
+    }
+  });
+}
+
 const TodosList = ({ filter, todos, checkTodo, removeTodo }) => {
+  const filteredTodos = filterTodos(todos, filter);
   return (
     <TodosListStyled>
-      {todos
-        .filter((todo) => {
-          switch (filter) {
-            case 'completed':
-              return todo.checked;
-            case 'uncompleted':
-              return !todo.checked;
-            default:
-              return true;
-          }
-        })
-        .map(({ id, text, checked }) => (
+      {filteredTodos.length === 0 ? (
+        <InfoMessage message={messages[filter]} />
+      ) : (
+        filteredTodos.map(({ id, text, checked }) => (
           <TodoItem
             id={id}
             key={id}
@@ -47,7 +60,8 @@ const TodosList = ({ filter, todos, checkTodo, removeTodo }) => {
             text={text}
             removeTodo={removeTodo}
           />
-        ))}
+        ))
+      )}
     </TodosListStyled>
   );
 };

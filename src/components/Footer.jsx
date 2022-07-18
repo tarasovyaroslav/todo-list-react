@@ -26,19 +26,3 @@ const Footer = ({ clear }) => {
 };
 
 export default Footer;
-
-// if (ok) {
-//   const todos = document.querySelectorAll('.todo-item');
-//   const newTodos = {};
-//   Object.keys(todos).forEach((key) => {
-//     const todo = todos[key];
-//     if (todo.childNodes[0].childNodes[0].checked) {
-//       todo.remove();
-//     }
-//   });
-
-//   //here
-//   showEmptyMessage();
-
-//   sendTodosToStorage();
-// }

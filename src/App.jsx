@@ -17,7 +17,7 @@ const AppStyled = styled.div`
 
 const initialState = {
   todos: [],
-  /*filteredTodos: [],*/ filter: 'all',
+  filter: 'all',
 };
 
 function reducer(state, action) {
@@ -46,16 +46,6 @@ function reducer(state, action) {
     case 'filter':
       return {
         ...state,
-        /*filteredTodos: state.todos.filter((todo) => {
-          switch (action.payload) {
-            case 'completed':
-              return todo.checked;
-            case 'uncompleted':
-              return !todo.checked;
-            default:
-              return true;
-          }
-        }),*/
         filter: action.payload,
       };
 
@@ -80,11 +70,6 @@ function reducer(state, action) {
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const messages = {
-    all: 'Create some todos!',
-    completed: 'No completed todos.',
-    uncompleted: 'Well done! All completed.',
-  };
 
   return (
     <AppStyled>
@@ -100,7 +85,7 @@ const App = () => {
       />
       <TodosList
         filter={state.filter}
-        todos={/*state.filteredTodos*/ state.todos}
+        todos={state.todos}
         checkTodo={(id) => dispatch({ type: 'check', payload: id })}
         removeTodo={(id) => dispatch({ type: 'remove', payload: id })}
       />
