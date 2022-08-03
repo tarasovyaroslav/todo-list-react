@@ -77,7 +77,6 @@ it('check and remove todos', () => {
   fireEvent.click(screen.queryAllByText('X')[0]);
   fireEvent.click(screen.queryAllByText('X')[1]);
   expect(removeTodo).toBeCalledTimes(2);
-  screen.debug();
 });
 
 // });
