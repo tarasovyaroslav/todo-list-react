@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import InfoMessage from './InfoMessage';
 
+import InfoMessage from './InfoMessage';
 import TodoItem from './TodoItem';
 
 const TodosListStyled = styled.ul`
@@ -44,7 +44,12 @@ function filterTodos(todosArray, filter) {
   });
 }
 
-const TodosList = ({ filter, todos, checkTodo, removeTodo }) => {
+const TodosList = ({
+  filter = 'all',
+  todos = [],
+  checkTodo,
+  removeTodo,
+}) => {
   const filteredTodos = filterTodos(todos, filter);
   return (
     <TodosListStyled>
@@ -55,9 +60,9 @@ const TodosList = ({ filter, todos, checkTodo, removeTodo }) => {
           <TodoItem
             id={id}
             key={id}
-            checkTodo={checkTodo}
             checked={checked}
             text={text}
+            checkTodo={checkTodo}
             removeTodo={removeTodo}
           />
         ))

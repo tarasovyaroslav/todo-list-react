@@ -16,9 +16,13 @@ const ClearButton = styled(Button)`
 `;
 
 const Footer = ({ clear }) => {
+  const alertMessage =
+    'Are you sure? It beyond retrieve remove all completed todos.';
   return (
     <FooterStyled>
-      <ClearButton onClick={() => clear()}>
+      <ClearButton
+        onClick={() => clear({ text: alertMessage, type: 'confirm' })}
+      >
         Clear completed
       </ClearButton>
     </FooterStyled>

@@ -19,7 +19,7 @@ const AddInputStyled = styled.input`
   width: 100%;
 `;
 
-const AddForm = ({ todos, addTodo }) => {
+const AddForm = ({ addTodo }) => {
   const [todoText, setTodoText] = useState('');
 
   return (

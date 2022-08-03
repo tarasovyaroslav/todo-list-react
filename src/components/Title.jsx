@@ -9,8 +9,8 @@ const TitleStyled = styled.div`
   font-weight: bold;
 `;
 
-const Title = ({ children }) => {
-  return <TitleStyled>{children}</TitleStyled>;
-};
+// const Title = ({ children }) => {
+//   return <TitleStyled>{children}</TitleStyled>;
+// };
 
-export default Title;
+export default TitleStyled;

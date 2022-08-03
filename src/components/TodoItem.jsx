@@ -86,14 +86,21 @@ const CheckmarkStyled = styled.div`
     `}
 `;
 
-const TodoItem = ({ id, checkTodo, removeTodo, checked, text }) => {
+const TodoItem = ({
+  id,
+  checkTodo,
+  removeTodo,
+  checked,
+  text,
+  ...otherProps
+}) => {
   return (
-    <TodoItemStyled>
+    <TodoItemStyled {...otherProps}>
       <TodoContentStyled>
         <TodoCheckedStyled
           type="checkbox"
           tabIndex="0"
-          value={checked}
+          checked={checked}
           onChange={() => checkTodo(id)}
         />
 

@@ -20,8 +20,8 @@ const ButtonStyled = styled.button`
   }
 `;
 
-const Btn = ({ children, ...otherProps }) => {
+const Button = ({ children, ...otherProps }) => {
   return <ButtonStyled {...otherProps}>{children}</ButtonStyled>;
 };
 
-export default Btn;
+export default Button;

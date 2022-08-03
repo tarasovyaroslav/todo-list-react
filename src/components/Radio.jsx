@@ -5,7 +5,14 @@ const RadioStyled = styled.label`
   border-bottom: 2px solid #aaaaaa;
 `;
 
-const Radio = ({ children, value, name, checked, onChange }) => {
+const Radio = ({
+  children,
+  value,
+  name,
+  checked,
+  onChange,
+  ...otherProps
+}) => {
   return (
     <RadioStyled>
       {children}
@@ -16,6 +23,7 @@ const Radio = ({ children, value, name, checked, onChange }) => {
         type="radio"
         onChange={onChange}
         checked={checked}
+        {...otherProps}
       />
     </RadioStyled>
   );

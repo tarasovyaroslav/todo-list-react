@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import Radio from './Radio';
@@ -6,7 +6,7 @@ import Radio from './Radio';
 const FiltersStyled = styled.div`
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 24px;
 
   margin-bottom: 8px;
   @media (max-width: 972px) {

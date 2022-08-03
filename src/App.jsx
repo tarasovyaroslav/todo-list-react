@@ -6,6 +6,7 @@ import TodosList from './components/TodosList';
 import Filters from './components/Filters';
 import AddForm from './components/AddForm';
 import Footer from './components/Footer';
+// import Alert from './components/Alert';
 
 const AppStyled = styled.div`
   width: 40%;
@@ -18,6 +19,7 @@ const AppStyled = styled.div`
 const initialState = {
   todos: [],
   filter: 'all',
+  // alert: { display: false, text: '', type: 'info', value: false },
 };
 
 function reducer(state, action) {
@@ -57,11 +59,39 @@ function reducer(state, action) {
       if (!ok) {
         return { ...state };
       }
+      // if (!state.alert.value) return { ...state };
 
       return {
         ...state,
         todos: state.todos.filter((todo) => !todo.checked),
       };
+
+    // case 'alert/show':
+    //   if (!state.alert.display)
+    //     return {
+    //       ...state,
+    //       alert: {
+    //         display: true,
+    //         text: action.payload.text,
+    //         type: action.payload.type,
+    //         value: false,
+    //       },
+    //     };
+    //   return { ...state };
+
+    // case 'alert/hide':
+    //   console.log(action.payload);
+    //   if (state.alert.display)
+    //     return {
+    //       ...state,
+    //       alert: {
+    //         display: false,
+    //         text: '',
+    //         type: 'info',
+    //         value: action.payload,
+    //       },
+    //     };
+    //   return { ...state };
 
     default:
       throw new Error();
@@ -73,6 +103,17 @@ const App = () => {
 
   return (
     <AppStyled>
+      {/* <Alert
+        text={state.alert.text}
+        display={state.alert.display}
+        type={state.alert.type}
+        show={(text) =>
+          dispatch({ type: 'alert/show', payload: text })
+        }
+        hide={(value) =>
+          dispatch({ type: 'alert/hide', payload: value })
+        }
+      /> */}
       <Title>TODO</Title>
       <Filters
         filter={state.filter}
